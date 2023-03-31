@@ -1,0 +1,137 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.container{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "h h"
+    "c p";
+}
+
+header{
+    grid-area: h;
+    background-color: rgb(101,29,255);
+}
+
+main{
+    grid-area: c;
+    background-color: rgb(101,29,255);
+}
+
+aside{
+    grid-area: p;
+    background-color: rgb(101,29,255);
+}
+
+
+
+header{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+.logo{
+    padding-left: 50px;
+    padding-top: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.hesquerda{
+    display: flex;
+    align-items: center;
+}
+
+.hdireita{
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.hdireita > i{
+    font-size: 1.5rem;
+    color: white;
+}
+
+.btn-01{
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.089);
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    margin-left: 16px;
+    font-weight: 600;
+}
+
+main{
+    height: 42vw;
+    padding-top: 10px;
+}
+
+main > h1{
+    font-size: 2.5em;
+    padding-top: 60px;
+    padding-left: 60px;
+    color: white;
+}
+
+.cor{
+    color:rgb(108,254,92);
+}
+
+main > p{
+    padding-top: 40px;
+    padding-left: 60px;
+    color: white;
+    font-size: 1.5em;
+}
+
+main > h2{
+    padding-top: 40px;
+    padding-left: 60px;
+    color: white;
+    font-size: 1.5em;
+}
+
+.btn-02{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    margin-left: 60px;
+    background-color: rgba(46, 139, 86, 0.308);
+    gap: 30px;
+    text-align: center;
+}
+
+.btn-02{
+    background-color: rgb(108,254,92);
+    color: black;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+aside > img{
+    margin-left: -210px;
+    margin-top: -75px;
+}
