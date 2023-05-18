@@ -17,18 +17,21 @@
         <main>
         </main>
         <section>
-            <form action="catalogo.html">
+
+            <form action="" id="formulario">
                 <h1>Cadastro</h1>
-                <label>E-mail</label>
-                <input type="text" placeholder="Digite seu e-mail">
-                <label>Senha</label>
-                <input type="password" placeholder="Digite sua senha">
-                <label>Confirmar senha</label>
-                <input type="password" placeholder="Digite novamente sua senha">
+                <div class="mensagem"></div>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="Digite sua e-mail">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
                 <input type="submit" value="Cadastrar" class="btn-01">
             </form>
         </section>
         <footer></footer>
     </div>
+    <script src="cadastro.js"></script>
 </body>
 </html>

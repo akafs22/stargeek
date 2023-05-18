@@ -147,6 +147,10 @@ header > .back{
     padding-top: 15px;
 }
 
+.mensagem{
+    color: white;
+}
+
 
 @media(max-width: 600px){
     

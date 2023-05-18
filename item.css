@@ -141,6 +141,10 @@ a{
     text-align: center;
 }
 
+.mensagem{
+    color: white;
+}
+
 @media screen and (max-width:600px){
     .container{
         display:grid;

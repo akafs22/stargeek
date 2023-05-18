@@ -131,11 +131,6 @@ body > .back{
 
     }
 
-    section{
-        
-    }
-    
-
     section > div::before{
         background-image: url(imagens/imgmb1.png);
         width: 170px;
@@ -162,4 +157,9 @@ body > .back{
         padding-left: 20px;
         padding-right: 20px;
     }
+}
+
+.mensagem{
+    color: white;
+    text-align: center;
 }
