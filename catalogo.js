@@ -1,9 +1,4 @@
-const botaomodal = document.querySelector(".btn");
 const cards = document.querySelector(".cards");
-const nome = document.getElementById("nome");
-const descricao = document.getElementById("descricao");
-const foto = document.getElementById("foto");
-
 
 carregarCatalogo();
 function carregarCatalogo(){
@@ -18,10 +13,14 @@ function carregarCatalogo(){
     dados.forEach((elemento, indice) => {
         let divcard = document.createElement("div");
         divcard.setAttribute("class", "card")
-        divcard.innerHTML = `<img src="img/${elemento.foto}"> 
-        <div class="nome">${elemento.nome}</div>
-        <div class="info"><a onclick="editar(${indice})">editar</a>
-        <a onclick="excluir(${indice})">excluir</a></div>
+        divcard.innerHTML = `<div class="cardimg">
+        <img src="img/${elemento.foto}">
+        </div> 
+        <div class="cardnome">${elemento.nome}</div>
+        <div class="carddescricao">${elemento.descricao}</div>
+        <div class="cardbtn">
+        <img src="imagens/excluir.png" alt="" onclick="excluir(${indice})"> |
+        <a onclick="editar(${indice})">editar</a>
         </div>`;
         
         cards.appendChild(divcard);
@@ -41,10 +40,7 @@ function excluir(indice){
 }
 
 function editar(indice){
-    var url ="cadastro.html?peditar=true&indice="+ encodeURIComponent(indice);
+    var url ="item.html?peditar=true&indice="+ encodeURIComponent(indice);
     window.location.href = url;
 }
 
-botaomodal.onclick = () =>{
-    window.location.assign("item.html");
-}

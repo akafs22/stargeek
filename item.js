@@ -1,20 +1,19 @@
-const formulario = document.getElementById("formulario");
 const nome = document.getElementById("nome");
 const descricao = document.getElementById("descricao");
 const foto = document.getElementById("foto");
-const botaocadastrar = document.getElementById("btncadastrar");
+const botaocadastrar = document.getElementById("botaocadastrar");
 
 var url = new URL(window.location.href);
 var peditar = url.searchParams.get("peditar");
 var pindice = url.searchParams.get("indice");
 
-if (peditar == "true"){
+if(peditar == "true"){
   editar(pindice);
 }
 
-botaocadastrar.onclick = (evento)=>{
-  
-  if ((peditar != "true") || (peditar == null)){
+botaocadastrar.onclick=(evento)=>{
+  if((peditar != "true") || (peditar == null)){
+
     evento.preventDefault();
     fenvio().then(result =>{
                      if(result){
@@ -34,16 +33,16 @@ botaocadastrar.onclick = (evento)=>{
                      }
 
                     });
-      }else
-      {
-        editarenvio(evento);
-        window.location.assign("catalogo.html");
-      }
-    
+}else {
+  editarenvio(evento);
+  window.location.assign("catalogo.html");
 }
+
+}
+    
 function editar(indice){
-  nome.value = "editar";
-  descricao.value = "editar";
+  nome.value = "";
+  descricao.value = "";
   foto.files[0] = null;  
   let dados = JSON.parse(localStorage.getItem("catalogo"));
   nome.value = dados[indice].nome;
@@ -51,32 +50,32 @@ function editar(indice){
   fotoa= dados[indice].foto;
  
 }
+
 var fotoa;
 function editarenvio(evento){
-     evento.preventDefault();
-    if ((fotoa != foto.value)&&(foto.value != "")){
- 
+  evento.preventDefault();
+  if ((fotoa != foto.value) && (foto.value != "")){
+
     fenvio()
     .then(result =>{
-                    if(result){
-                      salvaEdicao(nomeArq);
-                       }
-                    });
-   }
-   else
-   {
-        salvaEdicao(fotoa);
-   } 
+      if(result){
+        salvarEdicao(nomeArq);
+      }
+    });
+  }
+  else{
+    salvarEdicao(fotoa);
+  }
 }
 
-function salvaEdicao(pfoto){
+function salvarEdicao(pfoto){
   let dados = JSON.parse(localStorage.getItem("catalogo"));
   dados[pindice].nome = nome.value;
   dados[pindice].descricao = descricao.value;
   dados[pindice].foto = pfoto;
   localStorage.setItem("catalogo", JSON.stringify(dados));
-
 }
+
 var nomeArq;
 async function fenvio() { 
     const url = 'http://localhost:3005/upload';
