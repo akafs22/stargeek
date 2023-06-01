@@ -7,13 +7,15 @@ var url = new URL(window.location.href);
 var peditar = url.searchParams.get("peditar");
 var pindice = url.searchParams.get("indice");
 
+var verificaemail;
+logarUsuario();
+
 if(peditar == "true"){
   editar(pindice);
 }
 
 botaocadastrar.onclick=(evento)=>{
   if((peditar != "true") || (peditar == null)){
-
     evento.preventDefault();
     fenvio().then(result =>{
                      if(result){
@@ -22,7 +24,8 @@ botaocadastrar.onclick=(evento)=>{
                                       {
                                         nome: nome.value,
                                         descricao: descricao.value,
-                                        foto: nomeArq
+                                        foto: nomeArq,
+                                        email: verificaemail
                                         }
                                      )
                         localStorage.setItem("catalogo", JSON.stringify(dados));
@@ -47,14 +50,15 @@ function editar(indice){
   let dados = JSON.parse(localStorage.getItem("catalogo"));
   nome.value = dados[indice].nome;
   descricao.value = dados[indice].descricao;
-  fotoa= dados[indice].foto;
+  fotoa = dados[indice].foto;
  
 }
 
 var fotoa;
 function editarenvio(evento){
   evento.preventDefault();
-  if ((fotoa != foto.value) && (foto.value != "")){
+  if ((fotoa != foto.value) 
+  && (foto.value != "")){
 
     fenvio()
     .then(result =>{
@@ -73,6 +77,7 @@ function salvarEdicao(pfoto){
   dados[pindice].nome = nome.value;
   dados[pindice].descricao = descricao.value;
   dados[pindice].foto = pfoto;
+  dados[pindice].email = emaillogado;
   localStorage.setItem("catalogo", JSON.stringify(dados));
 }
 
@@ -105,4 +110,13 @@ async function fenvio() {
         console.error(error);
         return false;
       }
+}
+
+function logarUsuario(){
+  let email = sessionStorage.getItem("logado");
+  if (email != null){
+      verificaemail = email;
+  } else {
+      window.location.assign("login.html");
+  }       
 }

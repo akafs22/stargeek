@@ -12,7 +12,7 @@ function verificarEmail(email, evento){
     } else {
         let validar = dados.find(elemento => elemento.emailcliente==email);
         if (validar){
-            msg.innerHTML="E-mail já existe!";
+            msg.innerHTML="Informação inválida";
             evento.preventDefault();
         } else {
             criarUsuario(evento);
@@ -59,5 +59,5 @@ function criarUsuario(evento){
     evento.preventDefault();
     setTimeout(()=>{
         window.location.assign("catalogo.html");
-    }, 4000)
+    }, 2000)
 }
